@@ -87,7 +87,7 @@ db.create_all()
 
 
 #Getting Posts
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def get_all_posts():
     posts = db.session.query(BlogPost).all()
     return render_template("index.html", all_posts=posts, current_user=current_user)
